@@ -7,14 +7,11 @@ var gameState;
 var gameInitialize;
 var gameOverMenu;
 var speedMonster = 0.6;
-var score = 0;
 
 var hero = {
     top: 550,
     left: 600
 };
-
-
 
 var missiles =  [];
 var enemies = [
@@ -139,7 +136,6 @@ function closeStart() {
 
 function movehero() {
     document.getElementById('hero').style.left = hero.left + "px";
-
 }
 
 function drawMissiles() {
@@ -160,9 +156,6 @@ function drawEnemies() {
     document.getElementById('enemies').innerHTML = "";
     for (var enemy = 0; enemy < enemies.length; enemy = enemy + 1) {
         document.getElementById('enemies').innerHTML += `<div class='enemy' style='left:${enemies[enemy].left}px; top:${enemies[enemy].top}px;'></div>`;
-
-        // if(olika enemies)
-
     }
 }
 
@@ -186,8 +179,6 @@ function collisionDetection() {
 
     for (var enemy = 0; enemy < enemies.length; enemy = enemy + 1) {
         for (var missile = 0; missile < missiles.length; missile = missile + 1) {
-
-
             if (
                 (missiles[missile].top <= enemies[enemy].top + 50) &&
                 (missiles[missile].top >= enemies[enemy].top) &&
@@ -196,24 +187,15 @@ function collisionDetection() {
             ) {
                 enemies.splice(enemy, 1);
                 missiles.splice(missile, 1);
-                score += 10; 
                 
-                console.log("SCORE",score);
-                document.getElementById("score").innerHTML = score;
             }
         }
     }
 }
 
-function score() {
-    text("score:" + score, '30px Patrick Hand', 20, 30, 'white');
-}
-
-
 function setState(state) {
     gameState = state;
     showMenu();
-
 }
 
 function displayMenu(menu) {
@@ -267,7 +249,6 @@ function gameLoop() {
     collisionDetection();
     hideEnemies();
     hideHero();
-  
 }
 
 
