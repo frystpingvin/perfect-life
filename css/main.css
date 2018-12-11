@@ -64,25 +64,20 @@ body{
 }
 
 #restartbutton {
-
     font-family: 'Ballpark', cursive;
     color:rgb(3, 24, 14);
-    background-color: rgb(240, 120, 51);
+    background-color: #fff;
     font-size: 24px;
-    text-decoration-line: underline;
     position: relative;
     float: left;
-    height: 40px;
-    width: 135px;
-    left: 30px;
-    top: 10px;
     text-align: center;
     border-radius: 10px;
     cursor: pointer;
+    padding: 12px 16px 8px 16px;
     border: 3px solid black;
 }
 #restartbutton:hover{
-    background:rgb(245, 244, 244);
+    opacity: 0.75;
     
     }
     
@@ -205,8 +200,10 @@ a {
     left: 212px;
     margin: 0;
     padding: 0;
-
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #gameovertext {
