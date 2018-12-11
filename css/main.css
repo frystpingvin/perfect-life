@@ -1,9 +1,10 @@
-/* .title {
-    color: black;
-    background-color: rgb(174, 226, 215);
-    text-align: center;
-    font-family: 'Permanent Marker', cursive;
-} */
+@font-face {
+    font-family: 'Ballpark';
+    src: url('/fonts/BallparkWeiner.woff2') format('woff2'),
+        url('/fonts/BallparkWeiner.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body{
     margin: 0;
@@ -13,15 +14,14 @@ body{
 
 
 #background {
-background-image: url('assets/background.png');
-background-repeat: no-repeat;
-background-position: center;
-background-size: cover;
-background-attachment: fixed;
-height: 1350px; 
-width: 2400px;
-position: fixed;
-
+    background-image: url('assets/background.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 1350px; 
+    width: 2400px;
+    position: fixed;
 }
 
 .responsive {
@@ -37,7 +37,7 @@ position: fixed;
 }
 
 #score {
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Ballpark', cursive;
     color: rgb(0, 0, 0);
     font-size: 24px;
     position: relative;
@@ -51,7 +51,7 @@ position: fixed;
 }
 
 #scoretext {
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Ballpark', cursive;
     color:rgb(0, 0, 0);
     font-size: 24px;
     position: relative;
@@ -65,7 +65,7 @@ position: fixed;
 
 #restartbutton {
 
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Ballpark', cursive;
     color:rgb(3, 24, 14);
     background-color: rgb(240, 120, 51);
     font-size: 24px;
@@ -122,7 +122,7 @@ h4 {
 }
 
 a {
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Ballpark', cursive;
     color: black;
     text-align: center;
     text-decoration: none;
