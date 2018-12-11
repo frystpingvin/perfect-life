@@ -19,8 +19,8 @@ body{
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-    height: 1350px; 
-    width: 2400px;
+    height: 100%; 
+    width: 100%;
     position: fixed;
 }
 
@@ -125,21 +125,19 @@ a {
 }
 
 #start {
-    background-image: url('assets/start.png');
-    height: 580px;
-    width: 805px;
-    position: absolute;
-    top: 20px;
-    left: 215px;
-    margin: 0;
-    padding: 0;
-   
-    }
+    position: relative;
+    z-index: 9;
+    display: block;
+    margin: 0 auto;
+}
 
 #hero {
     background-image: url('assets/hero.png');
-    height: 50px;
-    width: 50px;
+    height: 140px;
+    width: 45px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     position: absolute;
     top: 550px;
     left: 600px;
@@ -147,9 +145,10 @@ a {
 }
 
 .enemy {
-    background-image: url('assets/enemy.gif');
-    height: 50px;
-    width: 50px;
+    background-size: contain;
+    background-image: url('assets/enemy.png');
+    height: 60px;
+    width: 70px;
     position: absolute;
     
 }
@@ -161,8 +160,10 @@ a {
 
 }
 .missile {
-    background-image: url("assets/missile1.png");
-    height: 16px;
+    background-image: url("assets/pill.png");
+    background-position: center;
+    background-size: contain;
+    height: 24px;
     width: 10px;
     position: absolute;
     
