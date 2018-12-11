@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Ballpark';
-    src: url('/fonts/BallparkWeiner.woff2') format('woff2'),
-        url('/fonts/BallparkWeiner.woff') format('woff');
+    src: url('../fonts/BallparkWeiner.woff2') format('woff2'),
+        url('../fonts/BallparkWeiner.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
