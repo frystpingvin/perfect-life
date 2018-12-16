@@ -144,21 +144,17 @@ document.addEventListener('keydown', function (e) {
         currentKeys.push(keyCode)
     };
 
-    console.log(currentKeys);
-
     if (currentKeys.includes(37)) {
         if (hero.left > 10) {
             hero.left = hero.left - 20;
             movehero();
         }
-        console.log('left');
     }
     if (currentKeys.includes(39)) {
         if (hero.left < 1150) {
             hero.left = hero.left + 20; //10 = speed
             movehero();
         }
-        console.log('right');
     }
     if (currentKeys.includes(32)) {
         missiles.push({
@@ -216,7 +212,6 @@ function moveEnemies() {
     for (var enemy = 0; enemy < enemies.length; enemy = enemy + 1) {
         enemies[enemy].top = enemies[enemy].top + speedMonster;
         if (enemies[enemy].top > 550) {
-            console.log("GAME OVER!!!!");
             setState("GAME OVER");
             clearTimeout(timer);
             enemies[enemy].top = 0;
