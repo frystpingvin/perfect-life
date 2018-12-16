@@ -7,6 +7,13 @@ var gameState;
 var gameInitialize;
 var gameOverMenu;
 var speedMonster = 0.6;
+var usedKeys = [
+    37,
+    39,
+    32,
+    13
+];
+var currentKeys = [];
 
 var hero = {
     top: 550,
@@ -111,18 +118,13 @@ var enemies = [
     { left: 932, top: -140 },
 ];
 var gameOverMenu;
-//var restartButton;
 var showGame;
 
 var el = document.getElementById('enemy');
 
-
 function play() {
   el.style.animationPlayState = 'running';
 }
-
-//document.getElementById("myP").style.cursor = "pointer";
-
 
 function gameInitialize() {
 
@@ -132,68 +134,58 @@ function gameInitialize() {
     gameOverMenu = document.getElementById("gameOver");
     centerMenuPosition(gameOverMenu);
 
-    // restartButton = document.getElementById("restartbutton");
-    // restartButton.addEventListener("click", gameRestart);
-
     setState("PLAY");
-   
 }
 
-// //function gameRestart() {
-//     //gameInitialize();
-//     setState("PLAY");
+document.addEventListener('keydown', function (e) {
+    var keyCode = e.keyCode;
     
-//     hideMenu(gameOverMenu);
-// console.log("restart!");
-// }
+    if (usedKeys.includes(keyCode) && !currentKeys.includes(keyCode)) {
+        currentKeys.push(keyCode)
+    };
 
+    console.log(currentKeys);
 
-
-
-document.onkeydown = function (e) {
-    console.log(e.KeyCode);
-
-
-    if (e.keyCode === 37) {
+    if (currentKeys.includes(37)) {
         if (hero.left > 10) {
             hero.left = hero.left - 20;
+            movehero();
         }
-        movehero();
+        console.log('left');
     }
-    if (e.keyCode === 39) {
+    if (currentKeys.includes(39)) {
         if (hero.left < 1150) {
             hero.left = hero.left + 20; //10 = speed
             movehero();
         }
-
+        console.log('right');
     }
-    if (e.keyCode === 32) {
+    if (currentKeys.includes(32)) {
         missiles.push({
             left: hero.left + 15,
             top: hero.top - 10
-            
         })
         drawMissiles();
     }
-    if (e.keyCode === 13) {
-        if (enter.push) {
-
+    if (currentKeys.includes(13) || (currentKeys.includes(37) && currentKeys.includes(39))) {
+        if (gameState === "GAME OVER") {
+            window.location.reload();
         }
-        gameLoop();
+        else {
+            gameLoop();
+        }
     }
-    
-}
-window.onkeydown = function(e) { 
-    return !(e.keyCode == 32, 37, 39);
-    
-};
+});
 
-
+document.addEventListener('keyup', function (e) {
+    var keyCode = e.keyCode;
+    if (usedKeys.includes(keyCode) && currentKeys.includes(keyCode)) {
+        currentKeys.splice( currentKeys.indexOf(keyCode), 1 );
+    };
+});
 
 function closeStart() {
     document.getElementById('start').style.display = "none";
-    
-
 }
 
 function movehero() {
@@ -201,7 +193,6 @@ function movehero() {
 }
 
 function drawMissiles() {
-
     document.getElementById('missiles').innerHTML = "";
     for (var missile = 0; missile < missiles.length; missile = missile + 1) {
         document.getElementById('missiles').innerHTML += `<div class='missile' style='left:${missiles[missile].left}px; top:${missiles[missile].top}px;'></div>`;
@@ -223,9 +214,6 @@ function drawEnemies() {
 
 function moveEnemies() {
     for (var enemy = 0; enemy < enemies.length; enemy = enemy + 1) {
-        // if (enemies[enemy].top < 600) {
-        //     enemies[enemy].top = enemies[enemy].top + 1;
-        // }
         enemies[enemy].top = enemies[enemy].top + speedMonster;
         if (enemies[enemy].top > 550) {
             console.log("GAME OVER!!!!");
@@ -238,7 +226,6 @@ function moveEnemies() {
 }
 
 function collisionDetection() {
-
     for (var enemy = 0; enemy < enemies.length; enemy = enemy + 1) {
         for (var missile = 0; missile < missiles.length; missile = missile + 1) {
             if (
@@ -288,18 +275,6 @@ function hideHero(){
     document.getElementById('hero').style.display = "none"
 }
 
-
-document.getElementById('restartbutton').addEventListener('click', function(e) {
-    e.preventDefault();
-
-    window.location.reload();
-  });
-   
-
-
-
-
-
 function gameLoop() {
     gameInitialize();
     timer = setTimeout(gameLoop, 20)
@@ -312,22 +287,3 @@ function gameLoop() {
     hideEnemies();
     hideHero();
 }
-
-
-
-
-//document.getElementById('startbutton').addEventListener("click", function( e ) {
-  // {
-//gameLoop();}
-// }, false);
-
-//document.addEventListener();
-
-
-
-
-
-
-
-
-
