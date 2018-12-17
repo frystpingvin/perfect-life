@@ -6,7 +6,7 @@ var start;
 var gameState;
 var gameInitialize;
 var gameOverMenu;
-var speedMonster = 0.6;
+var speedMonster = 0.5;
 var usedKeys = [
     37,
     39,
@@ -22,100 +22,51 @@ var hero = {
 
 var missiles =  [];
 var enemies = [
-    { left: 550, top: 50 },
-    { left: 450, top: 55 },
-    { left: 520, top: 63 },
-    { left: 503, top: 68 },
-    { left: 700, top: 72 },
-    { left: 610, top: 72 },
-    { left: 688, top: 84 },
-    { left: 315, top: 84 },
-    { left: 650, top: 91 },
-    { left: 520, top: 122 },
-    { left: 750, top: 105 },
-    { left: 700, top: 110 },
-    { left: 810, top: 125 },
-    { left: 788, top: 112 },
-    { left: 800, top: 105 },
-    { left: 300, top: 180 },
-    { left: 400, top: 178 },
+    { left: 550, top: -12 },
+    { left: 450, top: -20 },
+    { left: 520, top: -8 },
+    { left: 503, top: -33 },
+    { left: 700, top: -17 },
+    { left: 610, top: -9 },
+    { left: 688, top: -3 },
+    { left: 315, top: -22 },
+    { left: 650, top: -12 },
+    { left: 520, top: 22 },
+    { left: 750, top: 05 },
+    { left: 700, top: 10 },
+    { left: 810, top: 25 },
+    { left: 788, top: 12 },
+    { left: 800, top: 05 },
+    { left: 300, top: 80 },
+    { left: 400, top: 78 },
+    { left: 500, top: 75 },
+    { left: 600, top: 70 },
+    { left: 666, top: 65 },
+    { left: 835, top: 75 },
+    { left: 610, top: 180 },
+    { left: 225, top: 101 },
+    { left: 400, top: 163 },
+    { left: 430, top: 180 },
+    { left: 515, top: 144 },
+    { left: 650, top: 155 },
+    { left: 730, top: 157 },
+    { left: 830, top: 166 },
+    { left: 620, top: 170 },
+    { left: 932, top: 148 },
     { left: 500, top: 175 },
     { left: 600, top: 170 },
     { left: 666, top: 165 },
     { left: 835, top: 175 },
-    { left: 610, top: 180 },
-    { left: 225, top: 201 },
-    { left: 400, top: 263 },
-    { left: 430, top: 280 },
-    { left: 515, top: 244 },
-    { left: 650, top: 255 },
-    { left: 730, top: 257 },
-    { left: 830, top: 266 },
-    { left: 620, top: 270 },
-    { left: 932, top: 248 },
-
-    { left: 550, top: -100 },
-    { left: 450, top: -100 },
-    { left: 520, top: -100 },
-    { left: 503, top: -100 },
-    { left: 700, top: -100 },
-    { left: 610, top: -100 },
-    { left: 688, top: -100 },
-    { left: 315, top: -100 },
-    { left: 650, top: -100 },
-    { left: 520, top: -100 },
-    { left: 750, top: -100 },
-    { left: 700, top: -100 },
-    { left: 810, top: -100 },
-    { left: 788, top: -100 },
-    { left: 800, top: -100 },
-    { left: 300, top: -100 },
-    { left: 400, top: -100 },
-    { left: 500, top: -100 },
-    { left: 600, top: -100 },
-    { left: 666, top: -100 },
-    { left: 835, top: -120 },
-    { left: 610, top: -120 },
-    { left: 225, top: -120 },
-    { left: 400, top: -120 },
-    { left: 430, top: -120 },
-    { left: 515, top: -120 },
-    { left: 650, top: -120 },
-    { left: 730, top: -120 },
-    { left: 830, top: -120 },
-    { left: 620, top: -120 },
-    { left: 932, top: -120 },
-    { left: 550, top: -120 },
-    { left: 450, top: -120 },
-    { left: 520, top: -120 },
-    { left: 503, top: -140 },
-    { left: 700, top: -140 },
-    { left: 610, top: -140 },
-    { left: 688, top: -140 },
-    { left: 315, top: -140 },
-    { left: 650, top: -140 },
-    { left: 520, top: -140 },
-    { left: 750, top: -140 },
-    { left: 700, top: -140 },
-    { left: 810, top: -140 },
-    { left: 788, top: -140 },
-    { left: 800, top: -140 },
-    { left: 300, top: -140 },
-    { left: 400, top: -140 },
-    { left: 500, top: -140 },
-    { left: 600, top: -140 },
-    { left: 666, top: -140 },
-    { left: 835, top: -140 },
-    { left: 610, top: -140 },
-    { left: 225, top: -140 },
-    { left: 400, top: -140 },
-    { left: 430, top: -140 },
-    { left: 515, top: -140 },
-    { left: 650, top: -140 },
-    { left: 730, top: -140 },
-    { left: 830, top: -140 },
-    { left: 620, top: -140 },
-    { left: 932, top: -140 },
+    { left: 610, top: 150 },
+    { left: 225, top: 261 },
+    { left: 400, top: 173 },
+    { left: 430, top: 180 },
+    { left: 515, top: 134 },
+    { left: 650, top: 125 },
+    { left: 730, top: 277 },
+    { left: 830, top: 156 },
+    { left: 620, top: 180 },
+    { left: 932, top: 268 },
 ];
 var gameOverMenu;
 var showGame;
@@ -127,13 +78,10 @@ function play() {
 }
 
 function gameInitialize() {
-
     screenWidth = window.innerWidth;
     screenHeight = window.innerHeight;
-     
     gameOverMenu = document.getElementById("gameOver");
     centerMenuPosition(gameOverMenu);
-
     setState("PLAY");
 }
 
@@ -164,7 +112,8 @@ document.addEventListener('keydown', function (e) {
         drawMissiles();
     }
     if (currentKeys.includes(13) || (currentKeys.includes(37) && currentKeys.includes(39))) {
-        if (gameState === "GAME OVER") {
+        console.log(gameState);
+        if (gameState === "GAME OVER" || gameState == "WINNER") {
             window.location.reload();
         }
         else {
@@ -216,7 +165,6 @@ function moveEnemies() {
             clearTimeout(timer);
             enemies[enemy].top = 0;
         }
-        
     }
 }
 
@@ -231,7 +179,12 @@ function collisionDetection() {
             ) {
                 enemies.splice(enemy, 1);
                 missiles.splice(missile, 1);
-                
+
+                if (enemies.length < 1) {
+                    setState("WINNER");
+                    clearTimeout(timer);
+                    showMenu();
+                }
             }
         }
     }
@@ -253,6 +206,8 @@ function hideMenu(menu) {
 function showMenu() {
     if (gameState == "GAME OVER")
         displayMenu(gameOverMenu);
+    else if (gameState == "WINNER")
+        displayMenu(winnerMenu)
 }
 
 function centerMenuPosition(menu) {
@@ -261,13 +216,13 @@ function centerMenuPosition(menu) {
 }
 
 function hideEnemies(){
-    if (gameState == "GAME OVER")
-    document.getElementById('enemies').style.display = "none"
+    if (gameState == "GAME OVER" || gameState == "WINNER")
+        document.getElementById('enemies').style.display = "none"
 }
 
 function hideHero(){
-    if (gameState == "GAME OVER")
-    document.getElementById('hero').style.display = "none"
+    if (gameState == "GAME OVER" || gameState == "WINNER")
+        document.getElementById('hero').style.display = "none"
 }
 
 function gameLoop() {

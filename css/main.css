@@ -110,6 +110,8 @@ a {
     z-index: 9;
     display: block;
     margin: 0 auto;
+    max-height: 500px;
+    top: 80px;
 }
 
 #hero {
@@ -187,6 +189,15 @@ a {
     justify-content: center;
 }
 
+#winnerMenu {
+    background: transparent;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 #gameovertext {
     position: relative;
     height: 400px;
@@ -239,3 +250,10 @@ a {
     margin: 2;
     z-index: 3;
 } 
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    max-width: 250px;
+}
